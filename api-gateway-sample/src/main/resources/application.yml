@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 80
 
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
 gateway:
   routes:
     mapdata: http://localhost:8081
-    ai: http://localhost:8082
+    mapdata2: http://localhost:8080
 
 management:
   endpoints:
