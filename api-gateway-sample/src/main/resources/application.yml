@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: simple-api-gateway
+
+gateway:
+  routes:
+    mapdata: http://localhost:8081
+    ai: http://localhost:8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

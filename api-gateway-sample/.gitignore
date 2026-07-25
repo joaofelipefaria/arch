@@ -1,0 +1,10 @@
+target/
+
+.project
+.classpath
+.settings/
+
+.vscode/
+
+logs/
+*.log

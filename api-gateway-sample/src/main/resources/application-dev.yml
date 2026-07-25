@@ -1,0 +1,4 @@
+gateway:
+  routes:
+    mapdata: http://localhost:8081
+    ai: http://localhost:8082
