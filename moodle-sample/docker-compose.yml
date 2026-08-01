@@ -1,0 +1,46 @@
+services:
+  mariadb:
+    image: mariadb:11.4
+    container_name: moodle-mariadb
+    restart: unless-stopped 
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_USER: moodleuser
+      MARIADB_PASSWORD: moodlepassword
+      MARIADB_DATABASE: moodle
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - moodle-network
+
+  moodle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: moodle-app
+    restart: unless-stopped
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    volumes:
+      - moodledata:/var/www/moodledata
+    networks:
+      - moodle-network
+
+volumes:
+  mariadb_data:
+    driver: local
+  moodledata:
+    driver: local
+
+networks:
+  moodle-network:
+    driver: bridge
