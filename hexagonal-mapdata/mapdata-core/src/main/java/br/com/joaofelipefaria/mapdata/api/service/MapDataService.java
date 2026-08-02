@@ -7,15 +7,15 @@ import br.com.joaofelipefaria.mapdata.api.dto.MapdataDTO;
 
 public interface MapDataService {
 
-    public List<MapdataDTO> getAllMapData();
+    List<MapdataDTO> getAllMapData();
 
-    public Optional<MapdataDTO> getMapDataById(Integer id);
+    Optional<MapdataDTO> getMapDataById(Integer id);
 
-    public void deleteById(Integer id);
+    void deleteById(Integer id);
 
-    public void deleteAllMapData();
+    void deleteAllMapData();
 
-    public MapdataDTO create(MapdataDTO data);
+    MapdataDTO create(MapdataDTO data);
 
-    public MapdataDTO update(MapdataDTO data);
+    MapdataDTO update(MapdataDTO data);
 }

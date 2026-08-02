@@ -6,15 +6,15 @@ import br.com.joaofelipefaria.mapdata.api.dto.MetadataDTO;
 
 public interface MapDataUseCase {
 
-    public List<MetadataDTO> getMetadata(Integer id);
+    List<MetadataDTO> getMetadata(Integer id);
 
-    public MetadataDTO getMetadataById(Integer idmetadata); 
-    
-    public MetadataDTO createMetadata(Integer mapdataId, MetadataDTO metadataDTO);
+    MetadataDTO getMetadataById(Integer metadataId);
 
-    public MetadataDTO updateMetadata(Integer mapdataId, Integer metadataId, MetadataDTO metadataDTO);
+    MetadataDTO createMetadata(Integer mapdataId, MetadataDTO metadataDTO);
 
-    public void deleteMetadata(Integer mapdataId, Integer metadataId);
+    MetadataDTO updateMetadata(Integer mapdataId, Integer metadataId, MetadataDTO metadataDTO);
 
-    public void deleteAllMetadata(Integer mapdataId);
+    void deleteMetadata(Integer mapdataId, Integer metadataId);
+
+    void deleteAllMetadata(Integer mapdataId);
 }
